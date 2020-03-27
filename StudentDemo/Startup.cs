@@ -61,6 +61,7 @@ namespace StudentDemo
 
             app.Run(async (context) =>
             {
+                throw new Exception("请求发生错误");
                 await context.Response.WriteAsync("Hello World!");
             });
         }
