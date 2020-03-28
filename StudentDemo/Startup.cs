@@ -21,6 +21,7 @@ namespace StudentDemo
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILogger<Startup> logger)
         {
+            #region
             //异常中间件
             //if (env.IsDevelopment())
             //{
@@ -30,7 +31,6 @@ namespace StudentDemo
             //    //app.UseDeveloperExceptionPage(developerExceptionPageOptions);
             //    app.UseDeveloperExceptionPage();
             //}
-            #region
 
             //DefaultFilesOptions defaultFiles = new DefaultFilesOptions();
             //defaultFiles.DefaultFileNames.Clear();
@@ -68,7 +68,6 @@ namespace StudentDemo
 
             //添加静态文件中间件
             app.UseStaticFiles();
-
 
             app.Run(async (context) =>
             {
