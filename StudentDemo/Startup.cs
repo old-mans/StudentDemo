@@ -14,8 +14,16 @@ namespace StudentDemo
     {
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
+        /// <summary>
+        /// 容器
+        /// </summary>
+        /// <param name="services"></param>
         public void ConfigureServices(IServiceCollection services)
         {
+            //MVC core 只包含了MVC的核心功能
+            //MVC 包含了MVC core 及 其他第三方常用的的方法和服务
+            services.AddMvc();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -68,6 +76,10 @@ namespace StudentDemo
 
             //添加静态文件中间件
             app.UseStaticFiles();
+            //MVC带路由等基本配置
+            app.UseMvcWithDefaultRoute();
+            //MVC
+            //app.UseMvc();
 
             app.Run(async (context) =>
             {
