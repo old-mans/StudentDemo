@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using StudentDemo.Models;
 
 namespace StudentDemo
 {
@@ -23,6 +24,16 @@ namespace StudentDemo
             //MVC core 只包含了MVC的核心功能
             //MVC 包含了MVC core 及 其他第三方常用的的方法和服务
             services.AddMvc();
+            //services.AddMvcCore();
+
+
+            //配置依赖服务  3种方法
+
+            services.AddSingleton<IStudent,MoryStudent>();
+
+            //services.AddScoped();
+
+            //services.AddTransient();
 
         }
 
