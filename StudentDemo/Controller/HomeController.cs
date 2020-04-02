@@ -22,5 +22,12 @@ namespace StudentDemo.Cont
 
             //return "MVC";
         }
+        public Student Details()
+        {
+            return _istudent.GetStudent(1);
+
+
+            //return "MVC";
+        }
     }
 }
