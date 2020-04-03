@@ -19,6 +19,14 @@ namespace StudentDemo
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
+        #region 添加lon4net 日志
+            //.ConfigureLogging((context, loggingBuilder) =>
+            //{
+            //    loggingBuilder.AddFilter("System", LogLevel.Warning);//过滤命名空间
+            //    loggingBuilder.AddFilter("Microsoft", LogLevel.Warning);
+            //    loggingBuilder.AddLog4Net();
+            //})
+        #endregion
                 .UseStartup<Startup>();
     }
 }

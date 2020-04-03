@@ -2,12 +2,15 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using log4net.Repository.Hierarchy;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Microsoft.VisualStudio.Web.CodeGeneration.Design;
 using StudentDemo.Models;
+using ILoggerFactory = Microsoft.Extensions.Logging.ILoggerFactory;
 
 namespace StudentDemo
 {
@@ -38,7 +41,7 @@ namespace StudentDemo
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILogger<Startup> logger)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory logger)
         {
             #region
             //异常中间件
@@ -84,7 +87,8 @@ namespace StudentDemo
             {
                 app.UseExceptionHandler("/err");
             }
-
+            logger.AddLog4Net();
+            logger.CreateLogger<Program>().LogWarning("123123");
             //添加静态文件中间件
             app.UseStaticFiles();
             //MVC带路由等基本配置
